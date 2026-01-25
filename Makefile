@@ -1,15 +1,17 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME    := prometheus-node-exporter-lua
+PKG_NAME    := prometheus-node-exporter-podman
 PKG_VERSION := 1.0.0
 PKG_RELEASE := 1
 
-PKG_MAINTAINER := Christopher Söllinger <zerogiven@gmail.com>
-PKG_LICENSE    := Apache-2.0
+PKG_MAINTAINER    := Christopher Söllinger <christopher.soellinger@gmail.com>
+PKG_URL           := https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman
+PKG_LICENSE       := Apache-2.0
+PKG_LICENSE_FILES := LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 
-Build/Compile=
+#Build/Compile=
 
 #
 # Podman Basic exporter
