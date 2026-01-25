@@ -1,9 +1,13 @@
+[![OpenWrt](https://img.shields.io/badge/OpenWrt-24.10.x-darkgreen.svg)](https://openwrt.org/)
+[![GitHub Release](https://img.shields.io/github/v/release/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman)](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman/releases)
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman/total?color=blue)](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman/releases)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman)](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman/issues)
+
 # Prometheus Node Exporter Podman
 
 Prometheus metrics collectors for Podman containers on OpenWrt, designed for use with `prometheus-node-exporter-lua`.
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![OpenWrt](https://img.shields.io/badge/OpenWrt-24.10.x-green.svg)](https://openwrt.org/)
+> There is a future plan for ucode exporter. Not possible without modifying `prometheus-node-exporter-lua` startup script at the moment.
 
 ## Table of Contents
 
