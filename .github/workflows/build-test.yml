@@ -33,9 +33,10 @@ jobs:
       package_name: 'prometheus-node-exporter-podman'
       sdk_packages: 'prometheus-node-exporter-lua-podman'
       artifacts_patterns: |
-        prometheus-node-exporter-lua-*podman*.ipk
+        prometheus-node-exporter-*podman*.ipk
       openwrt_version: ${{ matrix.openwrt_version }}
       openwrt_build_version: ${{ matrix.openwrt_build_version }}
       arch: ${{ matrix.arch }}
       selected_version: ${{ github.event.inputs.openwrt_version }}
+      free_disk_space: true
       verbose: ${{ github.event.inputs.verbose == 'true' }}
