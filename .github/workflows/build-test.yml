@@ -1,0 +1,41 @@
+name: Build OpenWRT package (test)
+
+on:
+  workflow_dispatch:
+    inputs:
+      openwrt_version:
+        description: 'OpenWrt version to test'
+        required: true
+        default: '24.10'
+        type: choice
+        options:
+        - '24.10'
+      verbose:
+        description: 'Verbose build output'
+        required: false
+        default: false
+        type: boolean
+
+permissions: {}
+
+jobs:
+  build-test:
+    strategy:
+      matrix:
+        include:
+          - openwrt_version: '24.10'
+            openwrt_build_version: '24.10.4'
+            arch: 'x86_64'
+      fail-fast: false
+
+    uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-build.yml@main
+    with:
+      package_name: 'prometheus-node-exporter-podman'
+      sdk_packages: 'prometheus-node-exporter-lua-podman'
+      artifacts_patterns: |
+        prometheus-node-exporter-lua-*podman*.ipk
+      openwrt_version: ${{ matrix.openwrt_version }}
+      openwrt_build_version: ${{ matrix.openwrt_build_version }}
+      arch: ${{ matrix.arch }}
+      selected_version: ${{ github.event.inputs.openwrt_version }}
+      verbose: ${{ github.event.inputs.verbose == 'true' }}

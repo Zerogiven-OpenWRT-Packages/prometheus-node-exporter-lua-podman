@@ -1,0 +1,59 @@
+name: Build OpenWRT package (release)
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+# Minimize GITHUB_TOKEN permissions for security
+# Individual jobs override as needed (e.g., create-release needs contents: write)
+permissions: {}
+
+jobs:
+  build-packages:
+    strategy:
+      matrix:
+        include:
+          # 24.10
+          - openwrt_version: '24.10'
+            openwrt_build_version: '24.10.4'
+            arch: 'x86_64'
+      fail-fast: false
+
+    uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-build.yml@main
+    with:
+      package_name: 'prometheus-node-exporter-podman'
+      sdk_packages: 'prometheus-node-exporter-lua-podman prometheus-node-exporter-ucode-podman'
+      artifacts_patterns: |
+        prometheus-node-exporter-lua-*podman*.ipk
+        prometheus-node-exporter-ucode-*podman*.ipk
+      openwrt_version: ${{ matrix.openwrt_version }}
+      openwrt_build_version: ${{ matrix.openwrt_build_version }}
+      arch: ${{ matrix.arch }}
+      free_disk_space: true
+      verbose: false
+
+  create-release:
+    needs: build-packages
+    permissions:
+      contents: write
+    uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-release.yml@main
+    with:
+      artifact_pattern: 'prometheus-node-exporter-podman-*'
+      release_file_pattern: '*.ipk'
+      tag_name: ${{ github.ref_name }}
+    secrets:
+      RELEASE_TOKEN: ${{ secrets.OWRT_PACKAGE_RELEASE_TOKEN }}
+
+  # trigger-feed-update:
+  #   needs: create-release
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Trigger package feed update
+  #       env:
+  #         GH_TOKEN: ${{ secrets.FEED_DISPATCH_TOKEN }}
+  #       run: |
+  #         gh api repos/Zerogiven-OpenWRT-Packages/package-feed/dispatches \
+  #           -f event_type=webhook-release \
+  #           -f 'client_payload[repository]=${{ github.repository }}' \
+  #           -f 'client_payload[tag]=${{ github.ref_name }}'
