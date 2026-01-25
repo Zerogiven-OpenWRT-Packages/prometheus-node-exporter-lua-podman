@@ -25,8 +25,8 @@ jobs:
       package_name: 'prometheus-node-exporter-podman'
       sdk_packages: 'prometheus-node-exporter-lua-podman prometheus-node-exporter-ucode-podman'
       artifacts_patterns: |
-        prometheus-node-exporter-lua-*podman*.ipk
-        prometheus-node-exporter-ucode-*podman*.ipk
+        prometheus-node-exporter-*podman*.ipk
+        prometheus-node-exporter-*podman*.apk
       openwrt_version: ${{ matrix.openwrt_version }}
       openwrt_build_version: ${{ matrix.openwrt_build_version }}
       arch: ${{ matrix.arch }}
@@ -45,15 +45,15 @@ jobs:
     secrets:
       RELEASE_TOKEN: ${{ secrets.OWRT_PACKAGE_RELEASE_TOKEN }}
 
-  # trigger-feed-update:
-  #   needs: create-release
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Trigger package feed update
-  #       env:
-  #         GH_TOKEN: ${{ secrets.FEED_DISPATCH_TOKEN }}
-  #       run: |
-  #         gh api repos/Zerogiven-OpenWRT-Packages/package-feed/dispatches \
-  #           -f event_type=webhook-release \
-  #           -f 'client_payload[repository]=${{ github.repository }}' \
-  #           -f 'client_payload[tag]=${{ github.ref_name }}'
+  trigger-feed-update:
+    needs: create-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger package feed update
+        env:
+          GH_TOKEN: ${{ secrets.FEED_DISPATCH_TOKEN }}
+        run: |
+          gh api repos/Zerogiven-OpenWRT-Packages/package-feed/dispatches \
+            -f event_type=webhook-release \
+            -f 'client_payload[repository]=${{ github.repository }}' \
+            -f 'client_payload[tag]=${{ github.ref_name }}'

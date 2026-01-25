@@ -34,6 +34,7 @@ jobs:
       sdk_packages: 'prometheus-node-exporter-podman'
       artifacts_patterns: |
         prometheus-node-exporter-*podman*.ipk
+        prometheus-node-exporter-*podman*.apk
       openwrt_version: ${{ matrix.openwrt_version }}
       openwrt_build_version: ${{ matrix.openwrt_build_version }}
       arch: ${{ matrix.arch }}
