@@ -57,7 +57,7 @@ define Package/prometheus-node-exporter-lua-podman-container
   CATEGORY := Utilities
   TITLE    := Prometheus node exporter (podman per-container stats)
   PKGARCH  := all
-  DEPENDS  := +prometheus-node-exporter-lua +podman +lua-cjson +lua-curl-v3 +libnixio-lua
+  DEPENDS  := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +libnixio-lua
 endef
 
 define Package/prometheus-node-exporter-lua-podman-container/description
