@@ -31,7 +31,7 @@ endef
 
 define Package/prometheus-node-exporter-lua-podman/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/prometheus-collectors
-	$(INSTALL_DATA) ./files/usr/lib/lua/prometheus-collectors/podman.lua $(1)/usr/lib/lua/prometheus-collectors/
+	$(INSTALL_DATA) ./files/podman.lua $(1)/usr/lib/lua/prometheus-collectors/
 endef
 
 define Package/prometheus-node-exporter-lua-podman/postinst
@@ -68,7 +68,7 @@ endef
 
 define Package/prometheus-node-exporter-lua-podman-container/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/prometheus-collectors
-	$(INSTALL_DATA) ./files/usr/lib/lua/prometheus-collectors/podman-container.lua $(1)/usr/lib/lua/prometheus-collectors/
+	$(INSTALL_DATA) ./files/podman-container.lua $(1)/usr/lib/lua/prometheus-collectors/
 endef
 
 define Package/prometheus-node-exporter-lua-podman-container/postinst

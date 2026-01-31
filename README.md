@@ -1,7 +1,7 @@
 [![OpenWrt](https://img.shields.io/badge/OpenWrt-24.10.x-darkgreen.svg)](https://openwrt.org/)
-[![GitHub Release](https://img.shields.io/github/v/release/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman)](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman/releases)
-[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman/total?color=blue)](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman/releases)
-[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman)](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman/issues)
+[![GitHub Release](https://img.shields.io/github/v/release/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-lua-podman)](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-lua-podman/releases)
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-lua-podman/total?color=blue)](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-lua-podman/releases)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-lua-podman)](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-lua-podman/issues)
 
 # Prometheus Node Exporter Podman
 
@@ -51,7 +51,7 @@ You can setup the package feed to install and update with opkg:
 
 ### From IPK Package
 
-Download from the [Releases](https://github.com/Zerogiven-OpenWRT-Packages/owrt-prometheus-node-exporter-podman/releases) page:
+Download from the [Releases](https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-lua-podman/releases) page:
 
 ```bash
 opkg update
@@ -62,7 +62,7 @@ opkg install prometheus-node-exporter-lua-podman-container_*.ipk
 ### From Source
 
 ```bash
-git clone https://github.com/Zerogiven-OpenWRT-Packages/owrt-prometheus-node-exporter-podman.git package/prometheus-node-exporter-lua-podman
+git clone https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-lua-podman.git package/prometheus-node-exporter-lua-podman
 make menuconfig  # Navigate to: Utilities → prometheus-node-exporter-lua-podman
 make package/prometheus-node-exporter-lua-podman/compile V=s
 ```

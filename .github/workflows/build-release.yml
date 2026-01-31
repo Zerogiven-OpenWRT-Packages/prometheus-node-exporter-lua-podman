@@ -22,7 +22,7 @@ jobs:
 
     uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-build.yml@main
     with:
-      package_name: 'prometheus-node-exporter-podman'
+      package_name: 'prometheus-node-exporter-lua-podman'
       sdk_packages: 'prometheus-node-exporter-lua-podman prometheus-node-exporter-ucode-podman'
       artifacts_patterns: |
         prometheus-node-exporter-*podman*.ipk
@@ -39,8 +39,7 @@ jobs:
       contents: write
     uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-release.yml@main
     with:
-      artifact_pattern: 'prometheus-node-exporter-podman-*'
-      release_file_pattern: '*.ipk'
+      artifact_pattern: 'prometheus-node-exporter-*podman*'
       tag_name: ${{ github.ref_name }}
     secrets:
       RELEASE_TOKEN: ${{ secrets.OWRT_PACKAGE_RELEASE_TOKEN }}
