@@ -31,7 +31,7 @@ jobs:
     uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-build.yml@prometheus-node-exporter-lua-patch
     with:
       package_name: 'prometheus-node-exporter-podman'
-      sdk_packages: 'prometheus-node-exporter-podman'
+      sdk_packages: 'prometheus-node-exporter-lua-podman prometheus-node-exporter-lua-podman-container'
       artifacts_patterns: |
         prometheus-node-exporter-*podman*.ipk
         prometheus-node-exporter-*podman*.apk
