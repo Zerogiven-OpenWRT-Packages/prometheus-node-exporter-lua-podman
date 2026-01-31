@@ -4,7 +4,7 @@ PKG_NAME    := prometheus-node-exporter-podman
 PKG_VERSION := 1.0.0
 PKG_RELEASE := 1
 
-PKG_MAINTAINER    := Christopher Söllinger <christopher.soellinger@gmail.com>
+PKG_MAINTAINER    := CSoellinger
 PKG_URL           := https://github.com/Zerogiven-OpenWRT-Packages/prometheus-node-exporter-podman
 PKG_LICENSE       := Apache-2.0
 PKG_LICENSE_FILES := LICENSE
@@ -18,6 +18,7 @@ define Package/prometheus-node-exporter-lua-podman
   SECTION  := utils
   CATEGORY := Utilities
   TITLE    := Prometheus node exporter (podman collector)
+  URL      := $(PKG_URL)
   PKGARCH  := all
   DEPENDS  := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +libnixio-lua
 endef
@@ -54,6 +55,7 @@ define Package/prometheus-node-exporter-lua-podman-container
   SECTION  := utils
   CATEGORY := Utilities
   TITLE    := Prometheus node exporter (podman per-container stats)
+  URL      := $(PKG_URL)
   PKGARCH  := all
   DEPENDS  := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +libnixio-lua
 endef
