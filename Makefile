@@ -11,8 +11,6 @@ PKG_LICENSE_FILES := LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 
-#DEPENDS  := +prometheus-node-exporter-lua +podman +lua-cjson +lua-curl-v3 +libnixio-lua
-
 #
 # Podman Basic exporter
 #
