@@ -167,4 +167,5 @@ Container states are mapped to numeric values for Prometheus:
 ## Credits
 
 - [prometheus-node-exporter-lua](https://github.com/openwrt/packages/tree/master/utils/prometheus-node-exporter-lua) - OpenWrt metrics framework
+- [prometheus-podman-exporter](https://github.com/containers/prometheus-podman-exporter)
 - [Podman](https://podman.io/) - Container runtime
