@@ -7,8 +7,6 @@
 
 Prometheus metrics collectors for Podman containers on OpenWrt, designed for use with `prometheus-node-exporter-lua`.
 
-> There is a future plan for ucode exporter. Not possible without modifying `prometheus-node-exporter-lua` startup script at the moment.
-
 ## Table of Contents
 
 - [Features](#features)
