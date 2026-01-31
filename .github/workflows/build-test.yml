@@ -28,7 +28,7 @@ jobs:
             arch: 'x86_64'
       fail-fast: false
 
-    uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-build.yml@rust-patch
+    uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-build.yml@prometheus-node-exporter-lua-patch
     with:
       package_name: 'prometheus-node-exporter-podman'
       sdk_packages: 'prometheus-node-exporter-podman'
