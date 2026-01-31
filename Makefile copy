@@ -34,6 +34,20 @@ define Package/prometheus-node-exporter-lua-podman/install
 	$(INSTALL_DATA) ./files/podman.lua $(1)/usr/lib/lua/prometheus-collectors/
 endef
 
+define Package/prometheus-node-exporter-lua-podman/postinst
+#!/bin/sh
+[ -n "$${IPKG_INSTROOT}" ] && exit 0
+/etc/init.d/prometheus-node-exporter-lua restart 2>/dev/null
+exit 0
+endef
+
+define Package/prometheus-node-exporter-lua-podman/prerm
+#!/bin/sh
+[ -n "$${IPKG_INSTROOT}" ] && exit 0
+/etc/init.d/prometheus-node-exporter-lua restart 2>/dev/null
+exit 0
+endef
+
 #
 # Podman Advanced exporter
 #
@@ -55,6 +69,20 @@ endef
 define Package/prometheus-node-exporter-lua-podman-container/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/prometheus-collectors
 	$(INSTALL_DATA) ./files/podman-container.lua $(1)/usr/lib/lua/prometheus-collectors/
+endef
+
+define Package/prometheus-node-exporter-lua-podman-container/postinst
+#!/bin/sh
+[ -n "$${IPKG_INSTROOT}" ] && exit 0
+/etc/init.d/prometheus-node-exporter-lua restart 2>/dev/null
+exit 0
+endef
+
+define Package/prometheus-node-exporter-lua-podman-container/prerm
+#!/bin/sh
+[ -n "$${IPKG_INSTROOT}" ] && exit 0
+/etc/init.d/prometheus-node-exporter-lua restart 2>/dev/null
+exit 0
 endef
 
 $(eval $(call BuildPackage,prometheus-node-exporter-lua-podman))
