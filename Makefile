@@ -22,7 +22,7 @@ define Package/$(PKG_NAME)
   TITLE    := Prometheus node exporter (podman collector)
   URL      := $(PKG_URL)
   PKGARCH  := all
-  DEPENDS  := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +libnixio-lua +podman
+  DEPENDS  := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +luci-lib-nixio +podman
 endef
 
 define Package/$(PKG_NAME)/description
@@ -59,7 +59,7 @@ define Package/$(PKG_NAME)-container
   TITLE    := Prometheus node exporter (podman per-container stats)
   URL      := $(PKG_URL)
   PKGARCH  := all
-  DEPENDS  := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +libnixio-lua +podman
+  DEPENDS  := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +luci-lib-nixio +podman
 endef
 
 define Package/$(PKG_NAME)-container/description
