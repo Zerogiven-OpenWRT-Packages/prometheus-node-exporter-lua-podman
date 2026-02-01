@@ -25,7 +25,7 @@ jobs:
         include:
           - openwrt_version: '24.10'
             openwrt_build_version: '24.10.5'
-            arch: 'x86_64'
+            arch: 'aarch64_cortex-a53'
       fail-fast: false
 
     uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-build.yml@prometheus-node-exporter-lua-patch

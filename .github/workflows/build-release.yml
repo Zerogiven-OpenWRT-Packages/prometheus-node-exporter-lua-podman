@@ -16,6 +16,30 @@ jobs:
           - openwrt_version: '24.10'
             openwrt_build_version: '24.10.5'
             arch: 'x86_64'
+
+          - openwrt_version: '24.10'
+            openwrt_build_version: '24.10.5'
+            arch: 'aarch64_cortex-a53'
+
+          - openwrt_version: '24.10'
+            openwrt_build_version: '24.10.5'
+            arch: 'aarch64_cortex-a72'
+
+          - openwrt_version: '24.10'
+            openwrt_build_version: '24.10.5'
+            arch: 'arm_cortex-a7_neon-vfpv4'
+
+          - openwrt_version: '24.10'
+            openwrt_build_version: '24.10.5'
+            arch: 'arm_cortex-a9'
+
+          - openwrt_version: '24.10'
+            openwrt_build_version: '24.10.5'
+            arch: 'mips_24kc'
+
+          - openwrt_version: '24.10'
+            openwrt_build_version: '24.10.5'
+            arch: 'mipsel_24kc'
       fail-fast: false
 
     uses: Zerogiven/gh-openwrt-package-build-workflows/.github/workflows/reusable-build.yml@prometheus-node-exporter-lua-patch
