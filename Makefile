@@ -11,6 +11,8 @@ PKG_LICENSE_FILES := LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 
+Build/Compile=
+
 #
 # Podman Basic exporter
 #
