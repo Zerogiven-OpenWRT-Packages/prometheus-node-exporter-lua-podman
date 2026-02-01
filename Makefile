@@ -17,12 +17,12 @@ Build/Compile=
 # Podman Basic exporter
 #
 define Package/$(PKG_NAME)
-  SECTION  := utils
-  CATEGORY := Utilities
-  TITLE    := Prometheus node exporter (podman collector)
-  URL      := $(PKG_URL)
-  PKGARCH  := all
-  DEPENDS  := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +luci-lib-nixio
+  SECTION    := utils
+  CATEGORY   := Utilities
+  TITLE      := Prometheus node exporter (podman collector)
+  URL        := $(PKG_URL)
+  MAINTAINER := $(PKG_MAINTAINER)
+  DEPENDS    := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +luci-lib-nixio +podman
 endef
 
 define Package/$(PKG_NAME)/description
@@ -54,12 +54,12 @@ endef
 # Podman Advanced exporter
 #
 define Package/$(PKG_NAME)-container
-  SECTION  := utils
-  CATEGORY := Utilities
-  TITLE    := Prometheus node exporter (podman per-container stats)
-  URL      := $(PKG_URL)
-  PKGARCH  := all
-  DEPENDS  := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +luci-lib-nixio
+  SECTION    := utils
+  CATEGORY   := Utilities
+  TITLE      := Prometheus node exporter (podman per-container stats)
+  URL        := $(PKG_URL)
+  MAINTAINER := $(PKG_MAINTAINER)
+  DEPENDS    := +prometheus-node-exporter-lua +lua-cjson +lua-curl-v3 +luci-lib-nixio +podman
 endef
 
 define Package/$(PKG_NAME)-container/description
