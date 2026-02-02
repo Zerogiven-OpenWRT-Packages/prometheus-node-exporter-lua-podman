@@ -11,6 +11,7 @@ PKG_LICENSE_FILES := LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 
+# No compilation needed: this package only installs Lua collector scripts.
 Build/Compile=
 
 #
@@ -39,14 +40,14 @@ endef
 define Package/$(PKG_NAME)/postinst
 #!/bin/sh
 [ -n "$${IPKG_INSTROOT}" ] && exit 0
-/etc/init.d/prometheus-node-exporter-lua restart 2>/dev/null
+/etc/init.d/prometheus-node-exporter-lua restart
 exit 0
 endef
 
 define Package/$(PKG_NAME)/prerm
 #!/bin/sh
 [ -n "$${IPKG_INSTROOT}" ] && exit 0
-/etc/init.d/prometheus-node-exporter-lua restart 2>/dev/null
+/etc/init.d/prometheus-node-exporter-lua restart
 exit 0
 endef
 
@@ -76,14 +77,14 @@ endef
 define Package/$(PKG_NAME)-container/postinst
 #!/bin/sh
 [ -n "$${IPKG_INSTROOT}" ] && exit 0
-/etc/init.d/prometheus-node-exporter-lua restart 2>/dev/null
+/etc/init.d/prometheus-node-exporter-lua restart
 exit 0
 endef
 
 define Package/$(PKG_NAME)-container/prerm
 #!/bin/sh
 [ -n "$${IPKG_INSTROOT}" ] && exit 0
-/etc/init.d/prometheus-node-exporter-lua restart 2>/dev/null
+/etc/init.d/prometheus-node-exporter-lua restart
 exit 0
 endef
 
