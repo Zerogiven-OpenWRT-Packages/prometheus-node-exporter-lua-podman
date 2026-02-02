@@ -37,7 +37,7 @@ Prometheus metrics collectors for Podman containers on OpenWrt, designed for use
 
 ## Requirements
 
-- OpenWrt 24.10.x or later
+- OpenWrt 24.10.x
 - Podman with API socket enabled
 - `prometheus-node-exporter-lua`
 
