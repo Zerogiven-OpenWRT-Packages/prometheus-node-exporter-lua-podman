@@ -8,6 +8,7 @@ local nixio = require "nixio"
 -- Podman API socket path
 local SOCKET_PATH = "/run/podman/podman.sock"
 local API_BASE = "http://d/v5.0.0/libpod"
+local PODMAN_API_TIMEOUT = 120
 
 -- Check if file/socket exists using nixio
 local function file_exists(path)
@@ -22,7 +23,7 @@ local function podman_api(endpoint)
 
   c:setopt(curl.OPT_UNIX_SOCKET_PATH, SOCKET_PATH)
   c:setopt(curl.OPT_URL, API_BASE .. endpoint)
-  c:setopt(curl.OPT_TIMEOUT, 120)
+  c:setopt(curl.OPT_TIMEOUT, PODMAN_API_TIMEOUT)
   c:setopt_writefunction(function(data)
     table.insert(response, data)
     return #data
@@ -156,7 +157,7 @@ local function scrape_containers()
     local state = c.State or "unknown"
     local created = parse_timestamp(c.Created)
     local started = parse_timestamp(c.StartedAt)
-    local exited = c.ExitedAt or 0
+    local exited = parse_timestamp(c.ExitedAt)
     local exit_code = c.ExitCode or 0
     local restarts = c.Restarts or 0
 
@@ -259,7 +260,7 @@ local function scrape_images()
       parent_id = parent_id:sub(8, 19)
     end
     local size = img.Size or 0
-    local created = img.Created or 0
+    local created = parse_timestamp(img.Created)
 
     -- Handle RepoTags - may have multiple tags per image
     local repo_tags = type(img.RepoTags) == "table" and img.RepoTags or {"<none>:<none>"}

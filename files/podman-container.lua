@@ -9,6 +9,7 @@ local nixio = require "nixio"
 -- Podman API socket path
 local SOCKET_PATH = "/run/podman/podman.sock"
 local API_BASE = "http://d/v5.0.0/libpod"
+local PODMAN_API_TIMEOUT = 120
 
 -- Check if socket exists using nixio
 local function file_exists(path)
@@ -23,7 +24,7 @@ local function podman_api(endpoint)
 
   c:setopt(curl.OPT_UNIX_SOCKET_PATH, SOCKET_PATH)
   c:setopt(curl.OPT_URL, API_BASE .. endpoint)
-  c:setopt(curl.OPT_TIMEOUT, 120)
+  c:setopt(curl.OPT_TIMEOUT, PODMAN_API_TIMEOUT)
   c:setopt_writefunction(function(data)
     table.insert(response, data)
     return #data
@@ -35,6 +36,7 @@ local function podman_api(endpoint)
   c:close()
 
   if not ok then
+    io.stderr:write("Podman API call failed: " .. tostring(err) .. "\n")
     return nil
   end
 
