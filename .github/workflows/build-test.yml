@@ -24,7 +24,7 @@ jobs:
       matrix:
         include:
           - openwrt_version: '24.10'
-            openwrt_build_version: '24.10.5'
+            openwrt_build_version: '24.10.6'
             arch: 'aarch64_cortex-a53'
       fail-fast: false
 
